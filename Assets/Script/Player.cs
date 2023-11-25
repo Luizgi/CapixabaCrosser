@@ -22,22 +22,45 @@ public class Player : MonoBehaviour
         scoreText.text = "Score: " + score;
         if(Input.GetKeyDown(KeyCode.W) && !isHopping){
 
+
+        }
+        else if(Input.GetKeyDown(KeyCode.A)&& !isHopping){
+            
+        }
+        else if(Input.GetKeyDown(KeyCode.D) && !isHopping){
+
+        }
+
+    }
+
+    public void Front()
+    {
+        if (!isHopping)
+        {
             float zDifference = 0;
 
-            if(transform.position.z % 1 != 0){
-               zDifference = Mathf.RoundToInt(transform.position.z) - transform.position.z ;
+            if (transform.position.z % 1 != 0)
+            {
+                zDifference = Mathf.RoundToInt(transform.position.z) - transform.position.z;
             }
 
             MoveCharacter(new Vector3(1, 0, zDifference));
         }
-        else if(Input.GetKeyDown(KeyCode.A)&& !isHopping){
+    }
+    public void Left()
+    {
+        if (!isHopping)
+        {
             MoveCharacter(new Vector3(0, 0, 1));
         }
-        else if(Input.GetKeyDown(KeyCode.D) && !isHopping){
+    }
 
+    public void Right()
+    {
+        if(!isHopping)
+        {
             MoveCharacter(new Vector3(0, 0, -1));
         }
-
     }
     private void OnCollisionEnter(Collision collision){
         if(collision.collider.GetComponent<MovingObject>().isLog){
@@ -45,6 +68,14 @@ public class Player : MonoBehaviour
 
         }
         else{
+            transform.parent = null;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.GetComponent<MovingObject>().isLog) 
+        {
             transform.parent = null;
         }
     }
