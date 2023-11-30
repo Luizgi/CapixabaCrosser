@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
-
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {   
@@ -12,6 +11,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject Died;
     [SerializeField] private GameObject Pause;
     [SerializeField] private GameObject Game;
+    [SerializeField] private GameObject Score;
     public int ActualPhase;
 
     public void Update(){
@@ -54,9 +54,12 @@ public class MenuController : MonoBehaviour
 
     private void DisableAll(){
         Game.SetActive(false);
+        Score.SetActive(false);
     }
     private void EnableAll(){
         Game.SetActive(true);  
     }
+
+
 
 }

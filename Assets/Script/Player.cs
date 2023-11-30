@@ -65,4 +65,9 @@ public class Player : MonoBehaviour
     public void FinishHop(){
         isHopping = false;
     }
+
+    public int Points()
+    {
+        return score;
+    }
 }
