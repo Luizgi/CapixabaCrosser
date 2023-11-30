@@ -150,7 +150,7 @@ RectTransform:
   m_GameObject: {fileID: 35946294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.0519266, y: 2.0519845, z: 1}
+  m_LocalScale: {x: 2.1281834, y: 2.1244197, z: 1.0353}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1173149790}
@@ -183,7 +183,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4f3eedbde203b5d4bb33a653f1ff2e91, type: 3}
-    m_FontSize: 34
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -575,7 +575,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 453754911}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ReturnGame
+        m_MethodName: GamePlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

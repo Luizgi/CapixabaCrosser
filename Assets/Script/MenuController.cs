@@ -39,7 +39,12 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1f;
         Pause.SetActive(false);
         EnableAll();
+    }
+    public void GamePlay()
+    {
         Died.SetActive(false);
+        SceneManager.LoadScene(ActualPhase);
+
     }
 
     public void ToMenu(){
