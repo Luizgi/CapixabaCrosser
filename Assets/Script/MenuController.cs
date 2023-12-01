@@ -47,31 +47,51 @@ public class MenuController : MonoBehaviour
     }
     public void GamePlay()
     {
-        Died.SetActive(false);
-        SceneManager.LoadScene(ActualPhase);
+        if (Died != null)
+        {
+            Died.SetActive(false);
 
+            SceneManager.LoadScene(ActualPhase);
+        }
     }
     private const string MenuScene = "menu";
 
     public void ToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);  // Descarrega a cena atual
+        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);  // Descarrega a cena atual
         SceneManager.LoadScene(MenuScene);
     }
     public void Die(){
-        Died.SetActive(true);
+        if(Died != null)
+        {
+            Died.SetActive(true);
+        }
+        
         DisableAll();
     }
 
     private void DisableAll(){
-        Game.SetActive(false);
-        Score.SetActive(false);
+        if(Game != null)
+        {
+            Game.SetActive(false);
+        }
+        if (Score != null)
+        {
+            Score.SetActive(false);
+        }
+
     }
-  private void EnableAll(){
-    Game.SetActive(true);
-    Score.SetActive(true);
-}
+    private void EnableAll(){
+        if (Game != null)
+        {
+            Game.SetActive(true);
+        }
+        if (Score != null)
+        {
+            Score.SetActive(true);
+        }
+    }
 
 
 

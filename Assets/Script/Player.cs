@@ -60,16 +60,18 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.GetComponent<Vehicle>().isLog)
+        if (collision.gameObject.GetComponent<Vehicle>())
         {
-            transform.parent = collision.collider.transform;
+            if (collision.gameObject.GetComponent<Vehicle>().isLog) 
+                transform.parent = collision.collider.transform; 
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.GetComponent<Vehicle>().isLog)
+        if (collision.gameObject.GetComponent<Vehicle>())
         {
-            transform.parent = null;
+            if (collision.gameObject.GetComponent<Vehicle>().isLog) 
+                transform.parent = null;
         }
     }
     public void FinishHop(){

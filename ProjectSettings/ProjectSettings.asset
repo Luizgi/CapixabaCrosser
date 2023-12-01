@@ -251,7 +251,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: C:/Users/Noturno/Documents/GitHub/CapixabaCrosser/keys/user.keystore
-  AndroidKeyaliasName: rigo
+  AndroidKeyaliasName: riw
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
