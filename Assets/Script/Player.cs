@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     private Animator animator;
     private bool isHopping;
     private int score;
-    public Slider slider;
     
     private void Start(){
         animator = GetComponent<Animator>();
@@ -23,7 +22,6 @@ public class Player : MonoBehaviour
    
         scoreText.text = "Score: " + score;
 
-        float sliderValue = slider.value;
     }
 
     public void Front(){    
@@ -41,8 +39,7 @@ public class Player : MonoBehaviour
     {
         if (!isHopping)
         {
-            float sliderValue = slider.value; 
-            MoveCharacter(new Vector3(0, 0, sliderValue));
+            MoveCharacter(new Vector3(0, 0, 1));
         }
     }
 
@@ -50,8 +47,8 @@ public class Player : MonoBehaviour
     {
         if (!isHopping)
         {
-            float sliderValue = slider.value; 
-            MoveCharacter(new Vector3(0, 0, -sliderValue));
+
+            MoveCharacter(new Vector3(0, 0, -1));
         }
     }
 
@@ -61,7 +58,20 @@ public class Player : MonoBehaviour
             transform.position = (transform.position + difference);
             terrainGenerator.SpawnTerrain(false, transform.position);
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.GetComponent<Vehicle>().isLog)
+        {
+            transform.parent = collision.collider.transform;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.GetComponent<Vehicle>().isLog)
+        {
+            transform.parent = null;
+        }
+    }
     public void FinishHop(){
         isHopping = false;
     }

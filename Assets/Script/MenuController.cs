@@ -20,10 +20,15 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    public void PassPhase(int numberPhase){
+    public void PassPhase(int numberPhase)
+    {
         int pPhase = numberPhase + 1;
-        SceneManager.LoadScene(pPhase);
+        if (SceneManager.GetSceneByBuildIndex(pPhase) != null)
+        {
+            SceneManager.LoadScene(pPhase);
+        }
     }
+
 
     public void Exit(){
         Application.Quit();
@@ -46,12 +51,14 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(ActualPhase);
 
     }
+    private const string MenuScene = "menu";
 
-    public void ToMenu(){
-        Died.SetActive(false);
-        SceneManager.LoadScene(0);
+    public void ToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);  // Descarrega a cena atual
+        SceneManager.LoadScene(MenuScene);
     }
-
     public void Die(){
         Died.SetActive(true);
         DisableAll();
@@ -61,9 +68,10 @@ public class MenuController : MonoBehaviour
         Game.SetActive(false);
         Score.SetActive(false);
     }
-    private void EnableAll(){
-        Game.SetActive(true);  
-    }
+  private void EnableAll(){
+    Game.SetActive(true);
+    Score.SetActive(true);
+}
 
 
 
